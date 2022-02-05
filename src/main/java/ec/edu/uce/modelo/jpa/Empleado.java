@@ -2,6 +2,7 @@ package ec.edu.uce.modelo.jpa;
 
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/**
+ * @author edison
+ *
+ */
 @Entity
 @Table(name = "empleado")
 public class Empleado {
@@ -28,7 +33,7 @@ public class Empleado {
 	@Column(name = "empl_salario")
 	private BigDecimal salario;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "empl_id_ciudadano")
 	private Ciudadano ciudadano;
 

@@ -1,5 +1,6 @@
 package ec.edu.uce.modelo.jpa;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/**
+ * @author edison
+ *
+ */
 @Entity
 @Table(name = "ciudadano")
 public class Ciudadano {
@@ -25,7 +30,7 @@ public class Ciudadano {
 	@Column(name = "ciud_apellido")
 	private String apellido;
 
-	@OneToOne(mappedBy = "ciudadano")
+	@OneToOne(mappedBy = "ciudadano", cascade = CascadeType.ALL)
 	private Empleado empleado;
 
 	public Integer getId() {
